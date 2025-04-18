@@ -31,3 +31,18 @@ Name each implementation after the concept with Collection suffix, removing the 
 Generate a TestContext class.
 Add to TestContext private-package methods that returns lazy-initialized instances for the collections. 
 Add a method that returns the use-case instance, initialized with the collections.
+
+[//]: # (Entity)
+Generate for testing purposes a class with the Entity suffix to represent the invocation and the result of the first use-case.
+The name before the prefix should reflect the name and the status of the corresponding domain entity.
+For example, if the domain class is User, and the use-case register a User, the name will be RegisteredUserEntity.
+The Entity class should have a constructor that accepts only the TestContext as parameter.
+Each other data should be represented as an attribute, and a corresponding setter for it should be added.
+The setter should have the 'with' prefix, and return the instance of the Entity.
+Add to the Entity a 'get' method.
+If it is an external entity, the get method creates an instance of the corresponding class to save in the collection.
+If it is an internal entity, the get method invokes the use-case.
+In both cases the Entity returns a class suffixed with Result which wraps the result of the operation.
+Add the Result class as well.
+Add to TestContext a method with no parameter that returns the entity instance.
+Name it just with the entity name, without any suffix.
