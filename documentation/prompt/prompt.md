@@ -24,3 +24,10 @@ Generate the whole application, in Java.
 The code should include several use-case classes, and the domain classes for business logic.
 Focus only on the application and domain logic, and ignore any infrastructural aspects (like the web controller or the database).
 External and internal dependencies should be represented by interfaces, and for each of them a failing implementation (unsupported-operation) should be provided.
+
+[//]: # (Test Context)
+Generate an in-memory implementation for the dependencies (both internal and external) related to the first use-case.
+Name each implementation after the concept with Collection suffix, removing the Service part.
+Generate a TestContext class.
+Add to TestContext private-package methods that returns lazy-initialized instances for the collections. 
+Add a method that returns the use-case instance, initialized with the collections.
