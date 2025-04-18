@@ -1,4 +1,6 @@
-package domain;
+package domain.session;
+
+import domain.time.Time;
 
 public class Session {
     private Time startedAt;

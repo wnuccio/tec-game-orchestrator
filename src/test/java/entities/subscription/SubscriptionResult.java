@@ -1,4 +1,4 @@
-package entities;
+package entities.subscription;
 
 public class SubscriptionResult {
 

@@ -1,7 +1,7 @@
 package collections;
 
-import domain.User;
-import domain.UserService;
+import domain.user.User;
+import domain.user.UserService;
 
 import java.util.HashMap;
 import java.util.Map;

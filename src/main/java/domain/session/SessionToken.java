@@ -1,4 +1,4 @@
-package domain;
+package domain.session;
 
 public class SessionToken {
     private final String token;

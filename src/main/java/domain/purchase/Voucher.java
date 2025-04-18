@@ -1,4 +1,4 @@
-package domain;
+package domain.purchase;
 
 public class Voucher {
     private final String userId;

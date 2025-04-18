@@ -1,6 +1,6 @@
 package infrastructure;
 
-import domain.UserService;
+import domain.user.UserService;
 
 public class UserServiceApi implements UserService {
     @Override

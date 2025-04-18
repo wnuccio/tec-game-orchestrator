@@ -1,12 +1,12 @@
 package usecases;
 
-import domain.Session;
-import domain.SessionService;
-import domain.SessionToken;
-import domain.Subscription;
-import domain.SubscriptionService;
-import domain.UnregisteredUserException;
-import domain.UserService;
+import domain.session.Session;
+import domain.session.SessionService;
+import domain.session.SessionToken;
+import domain.subscription.Subscription;
+import domain.subscription.SubscriptionService;
+import domain.user.UnregisteredUserException;
+import domain.user.UserService;
 
 public class SubscribeUserUseCase {
     private final UserService userService;

@@ -1,8 +1,8 @@
 package infrastructure;
 
-import domain.Session;
-import domain.SessionService;
-import domain.SessionToken;
+import domain.session.Session;
+import domain.session.SessionService;
+import domain.session.SessionToken;
 
 public class SessionServiceApi implements SessionService {
     @Override

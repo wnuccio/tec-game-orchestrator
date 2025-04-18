@@ -1,8 +1,8 @@
 package collections;
 
-import entities.SessionEntity;
-import entities.SubscriptionEntity;
-import entities.UserEntity;
+import entities.session.SessionEntity;
+import entities.subscription.SubscriptionEntity;
+import entities.user.UserEntity;
 import usecases.SubscribeUserUseCase;
 
 public class TestContext {

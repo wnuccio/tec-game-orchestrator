@@ -1,6 +1,6 @@
-package entities;
+package entities.user;
 
-import domain.User;
+import domain.user.User;
 
 public class UserResult {
     private final User user;

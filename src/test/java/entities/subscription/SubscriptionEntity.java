@@ -1,6 +1,8 @@
-package entities;
+package entities.subscription;
 
 import collections.TestContext;
+import entities.session.SessionResult;
+import entities.user.UserResult;
 
 public class SubscriptionEntity {
     private final TestContext context;

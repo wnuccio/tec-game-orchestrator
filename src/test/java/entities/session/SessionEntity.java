@@ -1,10 +1,10 @@
-package entities;
+package entities.session;
 
 import collections.TestContext;
-import domain.Session;
-import domain.SessionToken;
-import domain.Time;
-import domain.Website;
+import domain.session.Session;
+import domain.session.SessionToken;
+import domain.time.Time;
+import domain.session.Website;
 
 public class SessionEntity {
     private final TestContext context;

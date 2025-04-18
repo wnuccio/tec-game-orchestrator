@@ -1,7 +1,6 @@
-package entities;
+package entities.session;
 
-import domain.Session;
-import domain.SessionToken;
+import domain.session.SessionToken;
 
 public class SessionResult {
     private SessionToken token;

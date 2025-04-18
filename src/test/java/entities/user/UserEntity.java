@@ -1,7 +1,7 @@
-package entities;
+package entities.user;
 
 import collections.TestContext;
-import domain.User;
+import domain.user.User;
 
 public class UserEntity {
     private final TestContext context;

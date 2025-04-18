@@ -1,7 +1,7 @@
 package collections;
 
-import domain.Subscription;
-import domain.SubscriptionService;
+import domain.subscription.Subscription;
+import domain.subscription.SubscriptionService;
 
 import java.util.ArrayList;
 import java.util.List;

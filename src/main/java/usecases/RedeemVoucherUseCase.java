@@ -1,9 +1,9 @@
 package usecases;
 
-import domain.Game;
-import domain.GameRepository;
-import domain.PurchaseService;
-import domain.Voucher;
+import domain.game.Game;
+import domain.game.GameRepository;
+import domain.purchase.PurchaseService;
+import domain.purchase.Voucher;
 
 public class RedeemVoucherUseCase {
     private final PurchaseService purchaseService;

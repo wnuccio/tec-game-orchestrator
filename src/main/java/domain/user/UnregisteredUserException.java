@@ -1,4 +1,4 @@
-package domain;
+package domain.user;
 
 public class UnregisteredUserException extends RuntimeException {
     public UnregisteredUserException(int userId) {

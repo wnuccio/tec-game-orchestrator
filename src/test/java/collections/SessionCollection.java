@@ -1,8 +1,8 @@
 package collections;
 
-import domain.Session;
-import domain.SessionService;
-import domain.SessionToken;
+import domain.session.Session;
+import domain.session.SessionService;
+import domain.session.SessionToken;
 
 import java.util.HashMap;
 import java.util.Map;

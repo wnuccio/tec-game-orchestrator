@@ -1,7 +1,7 @@
 package infrastructure;
 
-import domain.Game;
-import domain.GameRepository;
+import domain.game.Game;
+import domain.game.GameRepository;
 
 public class PostgresGameRepository implements GameRepository {
     @Override

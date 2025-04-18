@@ -1,4 +1,4 @@
-### domain.User Journey
+### domain.user.User Journey
 A user visits one of the websites and decides to subscribe, gaining access to exclusive features. Once subscribed, the user can explore the platform and make purchases on either website. To make the experience more engaging, the platform offers a game for subscribed users.
 
 The game begins when the user opts in, initiating a month-long challenge. During this period, the user receives daily or periodic emails containing thought-provoking questions. The user logs into the website to submit answers, which are verified by the system. Each correct answer earns the user points, creating a sense of achievement and progress.
@@ -29,7 +29,7 @@ The application will include an in-memory API implemented as a Java class. This 
 - Generate and manage vouchers for eligible users.
 
 ### External Dependencies
-- domain.User Service (ROC)
+- domain.user.User Service (ROC)
 - Session Service (FUC)
 - Subscription Service (RAW)
 - Game Service (RAW) (creates a random question and verifies the answer)

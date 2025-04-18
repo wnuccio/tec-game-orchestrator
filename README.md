@@ -23,7 +23,7 @@ Use-cases
 - makePurchase (with Voucher)
 
 External Dependencies
-- domain.User Service (ROC)
+- domain.user.User Service (ROC)
 - Session Service (FUC)
 - Subscription Service (RAW)
 - Game Service (RAW) (creates a random question and verifies the answer)

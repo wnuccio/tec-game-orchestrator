@@ -1,4 +1,6 @@
-package domain;
+package domain.subscription;
+
+import domain.session.Website;
 
 public class Subscription {
     private int userId;

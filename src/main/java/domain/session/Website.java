@@ -1,4 +1,4 @@
-package domain;
+package domain.session;
 
 public enum Website {
     ITALY,

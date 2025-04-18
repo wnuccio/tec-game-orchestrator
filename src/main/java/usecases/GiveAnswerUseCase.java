@@ -1,8 +1,8 @@
 package usecases;
 
-import domain.Game;
-import domain.GameRepository;
-import domain.GameService;
+import domain.game.Game;
+import domain.game.GameRepository;
+import domain.game.GameService;
 
 public class GiveAnswerUseCase {
     private final GameService gameService;

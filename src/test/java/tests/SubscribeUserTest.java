@@ -1,13 +1,9 @@
 package tests;
 
 import collections.TestContext;
-import domain.SessionToken;
-import domain.UnregisteredUserException;
-import domain.User;
-import entities.SessionResult;
-import entities.SubscriptionEntity;
-import entities.SubscriptionResult;
-import entities.UserResult;
+import domain.user.UnregisteredUserException;
+import entities.session.SessionResult;
+import entities.subscription.SubscriptionResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

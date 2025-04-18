@@ -1,4 +1,4 @@
-package domain;
+package domain.game;
 
 public interface GameRepository {
     void save(Game game);
