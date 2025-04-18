@@ -4,14 +4,13 @@ import entities.SubscribedUserEntity;
 import usecases.SubscribeUserUseCase;
 
 public class TestContext {
-    private SubscriptionCollection subscriptionServiceCollection;
-    private SubscribedUserEntity subscribedUserEntity;
+    private SubscriptionCollection subscriptionCollection;
 
     SubscriptionCollection getSubscriptionCollection() {
-        if (subscriptionServiceCollection == null) {
-            subscriptionServiceCollection = new SubscriptionCollection();
+        if (subscriptionCollection == null) {
+            subscriptionCollection = new SubscriptionCollection();
         }
-        return subscriptionServiceCollection;
+        return subscriptionCollection;
     }
 
     public SubscribeUserUseCase getSubscribeUserUseCase() {
@@ -19,9 +18,6 @@ public class TestContext {
     }
 
     public SubscribedUserEntity subscribedUserEntity() {
-        if (subscribedUserEntity == null) {
-            subscribedUserEntity = new SubscribedUserEntity(this);
-        }
-        return subscribedUserEntity;
+        return new SubscribedUserEntity(this);
     }
 }
