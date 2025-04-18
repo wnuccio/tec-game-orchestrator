@@ -1,19 +1,19 @@
 package domain;
 
 public class User {
-    private final String id;
-    private final String subscriptionWebsite;
+    private final int id;
+    private final String name;
+    private final String lastname;
+    private final String mail;
 
-    public User(String id, String subscriptionWebsite) {
+    public User(int id, String name, String lastname, String mail) {
         this.id = id;
-        this.subscriptionWebsite = subscriptionWebsite;
+        this.name = name;
+        this.lastname = lastname;
+        this.mail = mail;
     }
 
-    public String getId() {
+    public int id() {
         return id;
-    }
-
-    public String getSubscriptionWebsite() {
-        return subscriptionWebsite;
     }
 }

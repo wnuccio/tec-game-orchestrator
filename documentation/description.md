@@ -5,13 +5,22 @@ The game begins when the user opts in, initiating a month-long challenge. During
 
 As the game progresses, the user accumulates points and tracks their performance. If the user reaches the predefined score by the end of the game, they are rewarded with a voucher sent via email. This voucher can be redeemed on the website where the user initially subscribed, offering a discount on their next purchase. The journey concludes with the user enjoying their reward, fostering loyalty and encouraging further interaction with the platform.
 ### Use-Cases
-1. **domain.User Subscription**: A user can subscribe to one of the websites during a session.
+1. **User Subscription**: A user can subscribe to one of the websites during a session.
 2. **Purchases**: A user can make purchases on either website.
 3. **Game Participation**: Subscribed users can start a game where they receive periodic emails (e.g., for one month) containing questions.
 4. **Answer Submission**: Users can log in to the website to submit answers to the questions.
 5. **Point Accumulation**: Each verified answer earns the user points.
 6. **Voucher Reward**: If a user reaches a predefined score, they receive a voucher via email.
 7. **Voucher Redemption**: The voucher can be used on the subscription website to make discounted purchases.
+
+## User Subscription use-case
+A user which is previously registered can then subscribe.
+The registration is managed by the external UserService, and allows to specify name, lastname and email.
+The User Subscription use-case only requires the userId, generated during the registration.
+It verifies that the userId matches an actually registered user.
+The session object passed to this use-case contains other information, like the website and a timestamp.
+The result of the use-case is a Subscription object, which contains the userId and the website from the session.
+
 
 ### In-Memory API
 The application will include an in-memory API implemented as a Java class. This API will:

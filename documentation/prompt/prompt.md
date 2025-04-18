@@ -25,9 +25,14 @@ The code should include several use-case classes, and the domain classes for bus
 Focus only on the application and domain logic, and ignore any infrastructural aspects (like the web controller or the database).
 External and internal dependencies should be represented by interfaces, and for each of them a failing implementation (unsupported-operation) should be provided.
 
+[//]: # (Collection)
+Generate an in-memory implementation for the xxxxService.
+Name the implementation after the concept with Collection suffix, removing the Service part.
+In case the interface has only a read method, add a write method only in the implementation.
+Use a List in case the object has an identifier usable by the read method.
+Use a Map in the other case.
+
 [//]: # (Test Context)
-Generate an in-memory implementation for the dependencies (both internal and external) related to the first use-case.
-Name each implementation after the concept with Collection suffix, removing the Service part.
 Generate a TestContext class.
 Add to TestContext private-package methods that returns lazy-initialized instances for the collections. 
 Add a method that returns the use-case instance, initialized with the collections.

@@ -1,5 +1,5 @@
 package domain;
 
 public interface SessionService {
-    void createSession(String userId);
+    Session deserialize(SessionToken sessionToken);
 }
