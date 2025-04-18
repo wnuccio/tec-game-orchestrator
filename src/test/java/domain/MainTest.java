@@ -1,4 +1,4 @@
-package org.example;
+package domain;
 
 
 import org.junit.jupiter.api.Test;

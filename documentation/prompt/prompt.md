@@ -18,3 +18,9 @@ the external dependencies
 the internal dependencies, that are the 'repositories' interfaces for persistence
 
 Do not generate any code for now, just the description.
+
+[//]: # (Application code)
+Generate the whole application, in Java.
+The code should include several use-case classes, and the domain classes for business logic.
+Focus only on the application and domain logic, and ignore any infrastructural aspects (like the web controller or the database).
+External and internal dependencies should be represented by interfaces, and for each of them a failing implementation (unsupported-operation) should be provided.
