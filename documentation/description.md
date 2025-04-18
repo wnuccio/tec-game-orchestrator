@@ -20,14 +20,16 @@ The application will include an in-memory API implemented as a Java class. This 
 - Generate and manage vouchers for eligible users.
 
 ### External Dependencies
-1. **Email Service**: For sending game-related emails to users.
-2. **Payment Gateway**: For handling purchases on the websites.
-3. **Authentication Service**: For user login and session management.
+- User Service (ROC)
+- Session Service (FUC)
+- Subscription Service (RAW)
+- Game Service (RAW) (creates a random question and verifies the answer)
+- Email Service (WOC)
+- Purchase Service (ROC)
 
 ### Internal Dependencies
-1. **User Repository**: Interface for managing user data (e.g., subscriptions, game participation).
-2. **Purchase Repository**: Interface for storing and retrieving purchase records.
-3. **Game Repository**: Interface for managing game-related data, such as questions, answers, and points.
-4. **Voucher Repository**: Interface for handling voucher generation and redemption.
+Purchase Repository: Interface for storing and retrieving purchase records.
+Game Repository: Interface for managing game-related data, such as questions, answers, and points.
+Voucher Repository: Interface for handling voucher generation and redemption.
 
 This architecture ensures modularity and scalability while leveraging in-memory storage for rapid prototyping and testing.
