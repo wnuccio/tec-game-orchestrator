@@ -19,6 +19,11 @@ public class SubscriptionEntity {
         return this;
     }
 
+    public SubscriptionEntity fromSession(SessionResult sessionResult) {
+        this.sessionResult = sessionResult;
+        return this;
+    }
+
     public SubscriptionResult get() {
         sessionResult = sessionResult != null ? sessionResult : context.session().get();
         userResult = userResult != null ? userResult : context.user().get();

@@ -2,6 +2,7 @@ package tests;
 
 import collections.TestContext;
 import domain.UserId;
+import domain.session.Website;
 import domain.user.UnregisteredUserException;
 import entities.session.SessionResult;
 import entities.subscription.SubscriptionResult;
@@ -44,5 +45,14 @@ public class SubscribeUserTest {
         SubscriptionResult subscription = context.subscription().fromUser(user).get();
 
         assertEquals(subscription.userId().id(), 10);
+    }
+
+    @Test
+    void subscription_has_website() {
+        SessionResult session = context.session().withWebsite(Website.GERMANY).get();
+
+        SubscriptionResult subscription = context.subscription().fromSession(session).get();
+
+        assertEquals(subscription.website(), Website.GERMANY);
     }
 }

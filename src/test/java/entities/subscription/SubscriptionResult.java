@@ -1,6 +1,7 @@
 package entities.subscription;
 
 import domain.UserId;
+import domain.session.Website;
 import domain.subscription.Subscription;
 
 public class SubscriptionResult {
@@ -13,5 +14,9 @@ public class SubscriptionResult {
 
     public UserId userId() {
         return subscription.userId();
+    }
+
+    public Website website() {
+        return subscription.website();
     }
 }

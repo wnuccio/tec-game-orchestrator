@@ -4,8 +4,8 @@ import domain.UserId;
 import domain.session.Website;
 
 public class Subscription {
-    private UserId userId;
-    private Website website;
+    private final UserId userId;
+    private final Website website;
 
     public Subscription(UserId userId, Website website) {
         this.userId = userId;
@@ -14,5 +14,9 @@ public class Subscription {
 
     public UserId userId() {
         return userId;
+    }
+
+    public Website website() {
+        return website;
     }
 }
