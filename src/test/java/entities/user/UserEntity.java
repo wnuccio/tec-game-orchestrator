@@ -1,19 +1,20 @@
 package entities.user;
 
 import collections.TestContext;
+import domain.UserId;
 import domain.user.User;
 
 public class UserEntity {
     private final TestContext context;
 
-    private int id;
+    private UserId id;
 
     public UserEntity(TestContext context) {
         this.context = context;
     }
 
     public UserEntity withUserId(int id) {
-        this.id = id;
+        this.id = new UserId(id);
         return this;
     }
 

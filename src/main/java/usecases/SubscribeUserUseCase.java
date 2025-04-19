@@ -1,5 +1,6 @@
 package usecases;
 
+import domain.UserId;
 import domain.session.Session;
 import domain.session.SessionService;
 import domain.session.SessionToken;
@@ -19,12 +20,13 @@ public class SubscribeUserUseCase {
         this.subscriptionService = subscriptionService;
     }
 
-    public void subscribeUser(int userId, SessionToken sessionToken) {
+    public Subscription subscribeUser(UserId userId, SessionToken sessionToken) {
         if (!userService.existsUser(userId)) {
             throw new UnregisteredUserException(userId);
         }
         Session session = sessionService.deserialize(sessionToken);
         Subscription subscription = new Subscription(userId, session.website());
         subscriptionService.subscribe(subscription);
+        return subscription;
     }
 }

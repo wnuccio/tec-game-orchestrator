@@ -1,6 +1,7 @@
 package entities.subscription;
 
 import collections.TestContext;
+import domain.subscription.Subscription;
 import entities.session.SessionResult;
 import entities.user.UserResult;
 
@@ -21,7 +22,7 @@ public class SubscriptionEntity {
     public SubscriptionResult get() {
         sessionResult = sessionResult != null ? sessionResult : context.session().get();
         userResult = userResult != null ? userResult : context.user().get();
-        context.subscribeUserUseCase().subscribeUser(userResult.userId(), sessionResult.token());
-        return new SubscriptionResult();
+        Subscription subscription = context.subscribeUserUseCase().subscribeUser(userResult.userId(), sessionResult.token());
+        return new SubscriptionResult(subscription);
     }
 }

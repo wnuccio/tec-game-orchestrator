@@ -1,5 +1,7 @@
 package domain.user;
 
+import domain.UserId;
+
 public interface UserService {
-    boolean existsUser(int userId);
+    boolean existsUser(UserId userId);
 }

@@ -1,5 +1,6 @@
 package entities.user;
 
+import domain.UserId;
 import domain.user.User;
 
 public class UserResult {
@@ -9,7 +10,7 @@ public class UserResult {
         this.user = user;
     }
 
-    public int userId() {
+    public UserId userId() {
         return user.id();
     }
 }

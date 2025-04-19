@@ -1,5 +1,6 @@
 package collections;
 
+import domain.UserId;
 import domain.user.User;
 import domain.user.UserService;
 
@@ -7,10 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserCollection implements UserService {
-    private final Map<Integer, User> users = new HashMap<>();
+    private final Map<UserId, User> users = new HashMap<>();
 
     @Override
-    public boolean existsUser(int userId) {
+    public boolean existsUser(UserId userId) {
         return users.containsKey(userId);
     }
 
