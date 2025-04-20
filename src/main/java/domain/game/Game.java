@@ -1,19 +1,21 @@
 package domain.game;
 
+import domain.UserId;
+
 import java.util.List;
 
 public class Game {
-    private final String userId;
+    private final UserId userId;
     private final List<String> questions;
     private int points;
 
-    public Game(String userId, List<String> questions) {
+    public Game(UserId userId, List<String> questions) {
         this.userId = userId;
         this.questions = questions;
         this.points = 0;
     }
 
-    public String getUserId() {
+    public UserId getUserId() {
         return userId;
     }
 

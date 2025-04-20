@@ -18,4 +18,8 @@ public class User {
     public UserId id() {
         return id;
     }
+
+    public String emailAddress() {
+        return mail;
+    }
 }

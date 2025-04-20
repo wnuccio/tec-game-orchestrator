@@ -3,11 +3,13 @@ package entities.user;
 import collections.TestContext;
 import domain.UserId;
 import domain.user.User;
+import entities.subscription.SubscriptionEntity;
 
 public class UserEntity {
     private final TestContext context;
 
     private UserId id;
+    private String email;
 
     public UserEntity(TestContext context) {
         this.context = context;
@@ -19,8 +21,14 @@ public class UserEntity {
     }
 
     public UserResult get() {
-        User user = new User(id, "Andrea", "Delfi", "andrea.delfi@email.com");
+        email = email != null ? email : "andrea.delfi@email.com";
+        User user = new User(id, "Andrea", "Delfi", email);
         context.userCollection().addUser(user);
         return new UserResult(user);
+    }
+
+    public UserEntity withEmail(String email) {
+        this.email = email;
+        return this;
     }
 }

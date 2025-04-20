@@ -8,4 +8,9 @@ public class UserServiceApi implements UserService {
     public boolean existsUser(UserId userId) {
         throw new UnsupportedOperationException("Not implemented");
     }
+
+    @Override
+    public String findUserEmail(UserId userId) {
+        throw new UnsupportedOperationException("Not implemented");
+    }
 }

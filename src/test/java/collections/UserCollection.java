@@ -18,4 +18,9 @@ public class UserCollection implements UserService {
     public void addUser(User user) {
         users.put(user.id(), user);
     }
+
+    @Override
+    public String findUserEmail(UserId userId) {
+        return users.get(userId).emailAddress();
+    }
 }
