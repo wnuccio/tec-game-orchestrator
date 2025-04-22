@@ -1,9 +1,9 @@
-package entities;
+package entities.startedgame;
 
 import collections.TestContext;
-import domain.Question;
+import domain.game.Question;
+import entities.question.QuestionResult;
 import entities.user.UserResult;
-import usecases.StartGameUseCase;
 
 import java.util.List;
 

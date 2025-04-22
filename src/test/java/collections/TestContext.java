@@ -1,10 +1,10 @@
 package collections;
 
 import domain.game.GameRepository;
-import entities.QuestionEntity;
-import entities.StartedGameEntity;
-import entities.StartedGameResult;
-import entities.StartedGameVerifier;
+import entities.question.QuestionEntity;
+import entities.startedgame.StartedGameEntity;
+import entities.startedgame.StartedGameResult;
+import entities.startedgame.StartedGameVerifier;
 import entities.session.SessionEntity;
 import entities.subscription.SubscriptionEntity;
 import entities.user.UserEntity;

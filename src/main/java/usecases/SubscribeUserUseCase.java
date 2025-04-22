@@ -1,6 +1,6 @@
 package usecases;
 
-import domain.UserId;
+import domain.user.UserId;
 import domain.session.Session;
 import domain.session.SessionService;
 import domain.session.SessionToken;

@@ -1,6 +1,6 @@
 package entities.user;
 
-import domain.UserId;
+import domain.user.UserId;
 import domain.user.User;
 
 public class UserResult {

@@ -1,7 +1,7 @@
-package entities;
+package entities.startedgame;
 
 import collections.TestContext;
-import domain.Question;
+import domain.game.Question;
 
 import java.util.List;
 import java.util.stream.Stream;

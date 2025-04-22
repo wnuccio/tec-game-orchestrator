@@ -1,6 +1,6 @@
 package collections;
 
-import domain.UserId;
+import domain.user.UserId;
 import domain.game.Game;
 import domain.game.GameRepository;
 

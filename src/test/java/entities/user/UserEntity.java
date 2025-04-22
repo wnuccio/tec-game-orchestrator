@@ -1,9 +1,8 @@
 package entities.user;
 
 import collections.TestContext;
-import domain.UserId;
+import domain.user.UserId;
 import domain.user.User;
-import entities.subscription.SubscriptionEntity;
 
 public class UserEntity {
     private final TestContext context;

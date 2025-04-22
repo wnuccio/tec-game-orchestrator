@@ -1,6 +1,6 @@
-package entities;
+package entities.startedgame;
 
-import domain.Question;
+import domain.game.Question;
 
 import java.util.List;
 

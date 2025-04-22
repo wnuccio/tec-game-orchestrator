@@ -1,6 +1,6 @@
 package domain.subscription;
 
-import domain.UserId;
+import domain.user.UserId;
 import domain.session.Website;
 
 public class Subscription {

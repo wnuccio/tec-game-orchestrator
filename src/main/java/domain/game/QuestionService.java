@@ -1,7 +1,5 @@
 package domain.game;
 
-import domain.Question;
-
 import java.util.List;
 
 public interface QuestionService {

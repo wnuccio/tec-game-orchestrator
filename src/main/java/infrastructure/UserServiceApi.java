@@ -1,6 +1,6 @@
 package infrastructure;
 
-import domain.UserId;
+import domain.user.UserId;
 import domain.user.UserService;
 
 public class UserServiceApi implements UserService {

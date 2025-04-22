@@ -1,7 +1,5 @@
 package domain.user;
 
-import domain.UserId;
-
 public class User {
     private final UserId id;
     private final String name;

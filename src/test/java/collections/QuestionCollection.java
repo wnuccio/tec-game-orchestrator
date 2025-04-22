@@ -1,10 +1,9 @@
 package collections;
 
-import domain.Question;
+import domain.game.Question;
 import domain.game.QuestionService;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class QuestionCollection implements QuestionService {

@@ -1,14 +1,11 @@
 package tests;
 
 import collections.TestContext;
-import domain.Question;
-import entities.QuestionResult;
-import entities.StartedGameResult;
+import entities.question.QuestionResult;
+import entities.startedgame.StartedGameResult;
 import entities.user.UserResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 public class StartGameTest {
 

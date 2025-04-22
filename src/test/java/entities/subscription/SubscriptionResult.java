@@ -1,6 +1,6 @@
 package entities.subscription;
 
-import domain.UserId;
+import domain.user.UserId;
 import domain.session.Website;
 import domain.subscription.Subscription;
 

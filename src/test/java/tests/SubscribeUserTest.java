@@ -1,7 +1,7 @@
 package tests;
 
 import collections.TestContext;
-import domain.UserId;
+import domain.user.UserId;
 import domain.session.Website;
 import domain.user.UnregisteredUserException;
 import entities.session.SessionResult;

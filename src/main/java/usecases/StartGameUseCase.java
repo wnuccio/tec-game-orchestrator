@@ -1,7 +1,7 @@
 package usecases;
 
-import domain.Question;
-import domain.UserId;
+import domain.game.Question;
+import domain.user.UserId;
 import domain.game.GameRepository;
 import domain.game.QuestionService;
 import domain.mail.MailService;

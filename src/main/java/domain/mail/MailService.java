@@ -1,6 +1,6 @@
 package domain.mail;
 
-import domain.UserId;
+import domain.user.UserId;
 
 public interface MailService {
     void sendEmail(UserId userId, String email, String content);

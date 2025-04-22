@@ -1,6 +1,6 @@
 package domain.game;
 
-import domain.UserId;
+import domain.user.UserId;
 
 import java.util.List;
 
