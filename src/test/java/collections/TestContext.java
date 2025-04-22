@@ -1,6 +1,7 @@
 package collections;
 
 import domain.game.GameRepository;
+import entities.QuestionEntity;
 import entities.StartedGameEntity;
 import entities.StartedGameResult;
 import entities.StartedGameVerifier;
@@ -15,6 +16,7 @@ public class TestContext {
     private SubscriptionCollection subscriptionCollection;
     private UserCollection userCollection;
     private MailCollection mailCollection;
+    private QuestionCollection questionCollection;
 
     public UserCollection userCollection() {
         if (userCollection == null) {
@@ -28,7 +30,7 @@ public class TestContext {
         }
         return sessionCollection;
     }
-    SubscriptionCollection subscriptionCollection() {
+    public SubscriptionCollection subscriptionCollection() {
         if (subscriptionCollection == null) {
             subscriptionCollection = new SubscriptionCollection();
         }
@@ -40,8 +42,11 @@ public class TestContext {
         }
         return mailCollection;
     }
-    private QuestionCollection questionCollection() {
-        return new QuestionCollection();
+    public QuestionCollection questionCollection() {
+        if (questionCollection == null) {
+            questionCollection = new QuestionCollection();
+        }
+        return questionCollection;
     }
     public SubscribeUserUseCase subscribeUserUseCase() {
         return new SubscribeUserUseCase(userCollection(), sessionCollection(), subscriptionCollection());
@@ -75,7 +80,11 @@ public class TestContext {
         return new StartedGameEntity(this);
     }
 
+    public QuestionEntity question() {
+        return new QuestionEntity(this);
+    }
     // Verifiers
+
     public StartedGameVerifier verifyThat(StartedGameResult startedGameResult) {
         return new StartedGameVerifier(this, startedGameResult);
     }

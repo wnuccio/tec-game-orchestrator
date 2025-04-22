@@ -1,8 +1,11 @@
 package domain.game;
 
+import domain.Question;
+
 import java.util.List;
 
 public interface QuestionService {
-    List<String> generateQuestions();
+    List<Question> generateQuestions();
+
     boolean verifyAnswer(String answer);
 }

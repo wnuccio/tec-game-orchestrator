@@ -1,12 +1,16 @@
 package entities;
 
 import collections.TestContext;
+import domain.Question;
 import entities.user.UserResult;
 import usecases.StartGameUseCase;
+
+import java.util.List;
 
 public class StartedGameEntity {
     private final TestContext context;
     private UserResult user;
+    private QuestionResult questions;
 
     public StartedGameEntity(TestContext context) {
         this.context = context;
@@ -17,8 +21,17 @@ public class StartedGameEntity {
         return this;
     }
 
+    public StartedGameEntity fromQuestions(QuestionResult questions) {
+        this.questions = questions;
+        return this;
+    }
+
     public StartedGameResult startGame() {
-        context.startGameUseCase().startGame(user.userId());
-        return new StartedGameResult();
+        user = user != null ? user : context.user().get();
+        questions = questions != null ? questions : context.question()
+                .withQuestions("What's your name?").get();
+
+        List<Question> questions = context.startGameUseCase().startGame(user.userId());
+        return new StartedGameResult(questions);
     }
 }

@@ -1,13 +1,15 @@
 package usecases;
 
+import domain.Question;
 import domain.UserId;
 import domain.game.GameRepository;
 import domain.game.QuestionService;
 import domain.mail.MailService;
 import domain.session.SessionService;
 import domain.subscription.SubscriptionService;
-import domain.user.User;
 import domain.user.UserService;
+
+import java.util.List;
 
 public class StartGameUseCase {
     private final UserService userService;
@@ -22,8 +24,10 @@ public class StartGameUseCase {
         this.mailService = mailService;
     }
 
-    public void startGame(UserId userId) {
+    public List<Question> startGame(UserId userId) {
         String emailAddress = userService.findUserEmail(userId);
+        List<Question> questions = questionService.generateQuestions();
         mailService.sendEmail(userId, emailAddress, "Welcome to the game!");
+        return questions;
     }
 }
