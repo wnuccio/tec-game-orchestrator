@@ -16,9 +16,9 @@ public class QuestionEntity {
         this.questions = new ArrayList<>();
     }
 
-    public QuestionEntity addQuestion(String question) {
+    public QuestionEntity addQuestion(String question, String answer) {
         QuestionId id  = context.questionCollection().nextId();
-        questions.add(new Question(id, question));
+        questions.add(new Question(id, question, answer));
         return this;
     }
 

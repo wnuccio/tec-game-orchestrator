@@ -20,15 +20,14 @@ public class StartGameTest {
     @Test
     void start_game_replies_with_questions() {
         QuestionResult questions = context.questions()
-//                .withQuestions("Xxxx ?", "Yyyy ?", "Zzzz ?")
-                .addQuestion("Xxxx ?")
-                .addQuestion("Yyyy ?")
-                .addQuestion("Zzzz ?")
+                .addQuestion("Question 1?", "Answer 1")
+                .addQuestion("Question 2?", "Answer 2")
+                .addQuestion("Question 3?", "Answer 3")
                 .get();
 
         StartedGameResult game = context.startedGame().fromQuestions(questions).get();
 
-        context.verifyThat(game).hasQuestions("Xxxx ?", "Yyyy ?", "Zzzz ?");
+        context.verifyThat(game).hasQuestions("Question 1?", "Question 2?", "Question 3?");
     }
 
 

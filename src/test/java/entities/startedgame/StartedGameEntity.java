@@ -29,7 +29,7 @@ public class StartedGameEntity {
     public StartedGameResult get() {
         user = user != null ? user : context.user().get();
         questions = questions != null ? questions : context.questions()
-                .addQuestion("What's your name?").get();
+                .addQuestion("What's your name?", "John").get();
 
         List<Question> questions = context.startGameUseCase().startGame(user.userId());
         return new StartedGameResult(questions);

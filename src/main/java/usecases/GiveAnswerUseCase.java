@@ -1,8 +1,9 @@
 package usecases;
 
-import domain.game.Game;
 import domain.game.GameRepository;
+import domain.game.QuestionId;
 import domain.game.QuestionService;
+import domain.user.UserId;
 
 public class GiveAnswerUseCase {
     private final QuestionService questionService;
@@ -13,11 +14,7 @@ public class GiveAnswerUseCase {
         this.gameRepository = gameRepository;
     }
 
-    public void giveAnswer(String userId, String answer) {
-        Game game = gameRepository.findByUserId(userId);
-        if (questionService.verifyAnswer(answer)) {
-            game.addPoints(10); // Example point value
-            gameRepository.save(game);
-        }
+    public GameEnd giveAnswer(UserId userId, QuestionId questionId, String answer) {
+        return GameEnd.won();
     }
 }

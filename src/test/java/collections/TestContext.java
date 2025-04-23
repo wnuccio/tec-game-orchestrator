@@ -1,13 +1,17 @@
 package collections;
 
 import domain.game.GameRepository;
+import entities.AnswerEntity;
+import entities.AnswerResult;
+import entities.AnswerVerifier;
 import entities.question.QuestionEntity;
+import entities.session.SessionEntity;
 import entities.startedgame.StartedGameEntity;
 import entities.startedgame.StartedGameResult;
 import entities.startedgame.StartedGameVerifier;
-import entities.session.SessionEntity;
 import entities.subscription.SubscriptionEntity;
 import entities.user.UserEntity;
+import usecases.GiveAnswerUseCase;
 import usecases.StartGameUseCase;
 import usecases.SubscribeUserUseCase;
 
@@ -51,7 +55,6 @@ public class TestContext {
     public SubscribeUserUseCase subscribeUserUseCase() {
         return new SubscribeUserUseCase(userCollection(), sessionCollection(), subscriptionCollection());
     }
-
     public StartGameUseCase startGameUseCase() {
         return new StartGameUseCase(
                 userCollection(),
@@ -61,11 +64,15 @@ public class TestContext {
                 gameCollection(),
                 mailCollection());
     }
+    public GiveAnswerUseCase giveAnswerUseCase() {
+        return new GiveAnswerUseCase(questionCollection, gameCollection());
+    }
+
     // Repositories
+
     private GameRepository gameCollection() {
         return new GameCollection();
     }
-
     // Entities
     public UserEntity user() {
         return new UserEntity(this);
@@ -79,13 +86,19 @@ public class TestContext {
     public StartedGameEntity startedGame() {
         return new StartedGameEntity(this);
     }
-
     public QuestionEntity questions() {
         return new QuestionEntity(this);
     }
-    // Verifiers
 
+    public AnswerEntity answers() {
+        return new AnswerEntity(this);
+    }
+    // Verifiers
     public StartedGameVerifier verifyThat(StartedGameResult startedGameResult) {
         return new StartedGameVerifier(this, startedGameResult);
+    }
+
+    public AnswerVerifier verifyThat(AnswerResult answerResult) {
+        return new AnswerVerifier(this, answerResult);
     }
 }
