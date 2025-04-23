@@ -80,7 +80,7 @@ public class TestContext {
         return new StartedGameEntity(this);
     }
 
-    public QuestionEntity question() {
+    public QuestionEntity questions() {
         return new QuestionEntity(this);
     }
     // Verifiers

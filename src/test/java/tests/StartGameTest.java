@@ -19,18 +19,19 @@ public class StartGameTest {
 
     @Test
     void start_game_replies_with_questions() {
-        QuestionResult questionResult = context.question().withQuestions("Xxxx ?", "Yyyy ?", "Zzzz ?").get();
-        StartedGameResult game = context.startedGame().fromQuestions(questionResult).startGame();
+        QuestionResult questions = context.questions().withQuestions("Xxxx ?", "Yyyy ?", "Zzzz ?").get();
+
+        StartedGameResult game = context.startedGame().fromQuestions(questions).get();
 
         context.verifyThat(game).hasQuestions("Xxxx ?", "Yyyy ?", "Zzzz ?");
     }
 
 
-        @Test
+    @Test
     void start_game_sends_a_welcome_email() {
         UserResult user = context.user().withEmail("gamer@email.com").get();
 
-        StartedGameResult game = context.startedGame().fromUser(user).startGame();
+        StartedGameResult game = context.startedGame().fromUser(user).get();
 
         context.verifyThat(game).isEmailSent("gamer@email.com");
     }

@@ -26,9 +26,9 @@ public class StartedGameEntity {
         return this;
     }
 
-    public StartedGameResult startGame() {
+    public StartedGameResult get() {
         user = user != null ? user : context.user().get();
-        questions = questions != null ? questions : context.question()
+        questions = questions != null ? questions : context.questions()
                 .withQuestions("What's your name?").get();
 
         List<Question> questions = context.startGameUseCase().startGame(user.userId());
