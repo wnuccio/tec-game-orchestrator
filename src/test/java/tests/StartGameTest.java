@@ -19,7 +19,12 @@ public class StartGameTest {
 
     @Test
     void start_game_replies_with_questions() {
-        QuestionResult questions = context.questions().withQuestions("Xxxx ?", "Yyyy ?", "Zzzz ?").get();
+        QuestionResult questions = context.questions()
+//                .withQuestions("Xxxx ?", "Yyyy ?", "Zzzz ?")
+                .addQuestion("Xxxx ?")
+                .addQuestion("Yyyy ?")
+                .addQuestion("Zzzz ?")
+                .get();
 
         StartedGameResult game = context.startedGame().fromQuestions(questions).get();
 

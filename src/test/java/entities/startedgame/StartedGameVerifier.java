@@ -4,6 +4,7 @@ import collections.TestContext;
 import domain.game.Question;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,12 +25,11 @@ public class StartedGameVerifier {
     }
 
     public void hasQuestions(String... questions) {
-        List<Question> returnedQuestions = startedGame.questions();
+        List<String> returnedQuestions = startedGame.questions().stream().map(Question::question).collect(Collectors.toList());
 
         assertEquals(questions.length, returnedQuestions.size());
 
         Stream.of(questions)
-            .map(Question::new)
-            .forEach(q -> assertTrue(returnedQuestions.contains(q)));
+            .forEach(question -> assertTrue(returnedQuestions.contains(question)));
     }
 }

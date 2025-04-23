@@ -2,11 +2,10 @@ package entities.question;
 
 import collections.TestContext;
 import domain.game.Question;
+import domain.game.QuestionId;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
 
 public class QuestionEntity {
     private final TestContext context;
@@ -14,12 +13,12 @@ public class QuestionEntity {
 
     public QuestionEntity(TestContext context) {
         this.context = context;
+        this.questions = new ArrayList<>();
     }
 
-    public QuestionEntity withQuestions(String... questions) {
-        this.questions = Stream.of(questions)
-                .map(Question::new)
-                .collect(toList());
+    public QuestionEntity addQuestion(String question) {
+        QuestionId id  = context.questionCollection().nextId();
+        questions.add(new Question(id, question));
         return this;
     }
 

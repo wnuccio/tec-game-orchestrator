@@ -1,6 +1,7 @@
 package collections;
 
 import domain.game.Question;
+import domain.game.QuestionId;
 import domain.game.QuestionService;
 
 import java.util.ArrayList;
@@ -26,5 +27,9 @@ public class QuestionCollection implements QuestionService {
     public void addAll(List<Question> questions) {
         this.questions.clear();
         this.questions.addAll(questions);
+    }
+
+    public QuestionId nextId() {
+        return new QuestionId(questions.size() + 1);
     }
 }
