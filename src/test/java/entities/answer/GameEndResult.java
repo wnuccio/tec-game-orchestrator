@@ -1,13 +1,13 @@
-package entities;
+package entities.answer;
 
 import collections.TestContext;
 import domain.game.GameEnd;
 
-public class AnswerResult {
+public class GameEndResult {
     private final TestContext context;
     private final GameEnd gameEnd;
 
-    public AnswerResult(TestContext context, GameEnd gameEnd) {
+    public GameEndResult(TestContext context, GameEnd gameEnd) {
         this.context = context;
         this.gameEnd = gameEnd;
     }

@@ -1,9 +1,9 @@
 package collections;
 
 import domain.game.GameRepository;
-import entities.AnswerEntity;
-import entities.AnswerResult;
-import entities.AnswerVerifier;
+import entities.answer.AnswerEntity;
+import entities.answer.GameEndResult;
+import entities.answer.GameEndVerifier;
 import entities.question.QuestionEntity;
 import entities.session.SessionEntity;
 import entities.startedgame.StartedGameEntity;
@@ -98,7 +98,7 @@ public class TestContext {
         return new StartedGameVerifier(this, startedGameResult);
     }
 
-    public AnswerVerifier verifyThat(AnswerResult answerResult) {
-        return new AnswerVerifier(this, answerResult);
+    public GameEndVerifier verifyThat(GameEndResult gameEndResult) {
+        return new GameEndVerifier(this, gameEndResult);
     }
 }

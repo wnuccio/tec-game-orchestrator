@@ -1,4 +1,4 @@
-package entities;
+package entities.answer;
 
 import collections.TestContext;
 import domain.game.GameEnd;
@@ -23,10 +23,10 @@ public class AnswerEntity {
         return this;
     }
 
-    public AnswerResult get() {
+    public GameEndResult get() {
         user = context.user().get();
         Map.Entry<QuestionId, String> firstAnswer = answers.entrySet().iterator().next();
         GameEnd gameEnd = context.giveAnswerUseCase().giveAnswer(user.userId(), firstAnswer.getKey(), firstAnswer.getValue());
-        return new AnswerResult(context, gameEnd);
+        return new GameEndResult(context, gameEnd);
     }
 }

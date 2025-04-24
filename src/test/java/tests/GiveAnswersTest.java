@@ -2,7 +2,7 @@ package tests;
 
 import collections.TestContext;
 import domain.game.Question;
-import entities.AnswerResult;
+import entities.answer.GameEndResult;
 import entities.question.QuestionResult;
 import entities.startedgame.StartedGameResult;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,15 +25,15 @@ public class GiveAnswersTest {
                 .addQuestion("What's your name?", "John")
                 .get();
 
-        StartedGameResult gameResult = context.startedGame().fromQuestions(questionResult).get();
+        StartedGameResult startedGame = context.startedGame().fromQuestions(questionResult).get();
 
-        List<Question> questions = gameResult.questions();
+        List<Question> questions = startedGame.questions();
 
-        AnswerResult answersGivenResult = context.answers()
+        GameEndResult gameEnd = context.answers()
                 .addAnswer(questions.get(0).id(), "John")
                 .get();
 
-        context.verifyThat(answersGivenResult).isGameWon();
+        context.verifyThat(gameEnd).isGameWon();
     }
 
     @Test
@@ -42,14 +42,14 @@ public class GiveAnswersTest {
                 .addQuestion("What's your name?", "John")
                 .get();
 
-        StartedGameResult gameResult = context.startedGame().fromQuestions(questionResult).get();
+        StartedGameResult startedGame = context.startedGame().fromQuestions(questionResult).get();
 
-        List<Question> questions = gameResult.questions();
+        List<Question> questions = startedGame.questions();
 
-        AnswerResult answersGivenResult = context.answers()
+        GameEndResult gameEnd = context.answers()
                 .addAnswer(questions.get(0).id(), "Mary")
                 .get();
 
-        context.verifyThat(answersGivenResult).isGameLost();
+        context.verifyThat(gameEnd).isGameLost();
     }
 }
