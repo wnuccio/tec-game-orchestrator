@@ -2,6 +2,9 @@ package entities.answer;
 
 import collections.TestContext;
 import domain.game.GameEnd;
+import domain.purchase.Voucher;
+
+import java.util.Optional;
 
 public class GameEndResult {
     private final TestContext context;
@@ -14,5 +17,9 @@ public class GameEndResult {
 
     public GameEnd gameEnd() {
         return gameEnd;
+    }
+
+    public Optional<Voucher> voucher() {
+        return gameEnd.voucher();
     }
 }

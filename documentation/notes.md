@@ -15,3 +15,4 @@ the answer are given one at a time, and the game ends when all questions have be
 This poses another challenge: an entity that manages a sequence of states.
 Basically the entity that wraps the giveAnswer use-case shoud do a series of calls, not just one,
 as default. In that way in can be reused to test the last use-case (voucher).
+- Each use-case should accept a Session as parameter, but this is only relevant in some of them.

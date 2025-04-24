@@ -1,5 +1,9 @@
 package domain.game;
 
+import domain.purchase.Voucher;
+
+import java.util.Optional;
+
 public class GameEnd {
     private final boolean isWon;
 
@@ -17,5 +21,9 @@ public class GameEnd {
 
     public boolean isWon() {
         return isWon;
+    }
+
+    public Optional<Voucher> voucher() {
+        return Optional.empty();
     }
 }

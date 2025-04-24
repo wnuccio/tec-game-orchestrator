@@ -7,18 +7,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GameEndVerifier {
     private final TestContext context;
-    private final GameEndResult gameEndResult;
+    private final GameEndResult gameEnd;
 
-    public GameEndVerifier(TestContext context, GameEndResult gameEndResult) {
+    public GameEndVerifier(TestContext context, GameEndResult gameEnd) {
         this.context = context;
-        this.gameEndResult = gameEndResult;
+        this.gameEnd = gameEnd;
     }
 
     public void isGameWon() {
-        assertTrue(gameEndResult.gameEnd().isWon());
+        assertTrue(gameEnd.gameEnd().isWon());
     }
 
     public void isGameLost() {
-        assertFalse(gameEndResult.gameEnd().isWon());
+        assertFalse(gameEnd.gameEnd().isWon());
+    }
+
+    public void hasVoucher() {
+        assertTrue(gameEnd.voucher().isPresent());
     }
 }

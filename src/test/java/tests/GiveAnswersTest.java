@@ -52,4 +52,11 @@ public class GiveAnswersTest {
 
         context.verifyThat(gameEnd).isGameLost();
     }
+
+    @Test
+    void when_game_is_won_a_voucher_is_returned() {
+        GameEndResult gameEnd = context.answers().get();
+
+        context.verifyThat(gameEnd).hasVoucher();
+    }
 }
