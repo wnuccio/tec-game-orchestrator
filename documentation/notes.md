@@ -10,3 +10,8 @@ The flow in short:
 or use some information from the subscription (ex. for the email)
 - Verify at most one game per user is currently active
 - Verify the game is started before replying to the questions
+- Consider the possibility of a game with many questions;
+the answer are given one at a time, and the game ends when all questions have been answered.
+This poses another challenge: an entity that manages a sequence of states.
+Basically the entity that wraps the giveAnswer use-case shoud do a series of calls, not just one,
+as default. In that way in can be reused to test the last use-case (voucher).

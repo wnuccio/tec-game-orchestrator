@@ -1,7 +1,7 @@
 package entities;
 
 import collections.TestContext;
-import usecases.GameEnd;
+import domain.game.GameEnd;
 
 public class AnswerResult {
     private final TestContext context;

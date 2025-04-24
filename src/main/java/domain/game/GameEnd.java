@@ -1,4 +1,4 @@
-package usecases;
+package domain.game;
 
 public class GameEnd {
     private final boolean isWon;

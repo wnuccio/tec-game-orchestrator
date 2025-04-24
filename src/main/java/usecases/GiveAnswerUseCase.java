@@ -1,5 +1,6 @@
 package usecases;
 
+import domain.game.GameEnd;
 import domain.game.GameRepository;
 import domain.game.QuestionId;
 import domain.game.QuestionService;

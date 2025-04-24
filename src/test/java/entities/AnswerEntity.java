@@ -1,9 +1,9 @@
 package entities;
 
 import collections.TestContext;
+import domain.game.GameEnd;
 import domain.game.QuestionId;
 import entities.user.UserResult;
-import usecases.GameEnd;
 
 import java.util.HashMap;
 import java.util.Map;
