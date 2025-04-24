@@ -11,6 +11,10 @@ public class GameEnd {
         return new GameEnd(true);
     }
 
+    public static GameEnd lost() {
+        return new GameEnd(false);
+    }
+
     public boolean isWon() {
         return isWon;
     }

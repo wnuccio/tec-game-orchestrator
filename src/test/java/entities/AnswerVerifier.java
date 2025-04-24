@@ -2,6 +2,7 @@ package entities;
 
 import collections.TestContext;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AnswerVerifier {
@@ -15,5 +16,9 @@ public class AnswerVerifier {
 
     public void isGameWon() {
         assertTrue(answerResult.gameEnd().isWon());
+    }
+
+    public void isGameLost() {
+        assertFalse(answerResult.gameEnd().isWon());
     }
 }

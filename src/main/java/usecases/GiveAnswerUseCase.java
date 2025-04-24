@@ -15,6 +15,9 @@ public class GiveAnswerUseCase {
     }
 
     public GameEnd giveAnswer(UserId userId, QuestionId questionId, String answer) {
+        if (!questionService.isAnswerCorrect(questionId, answer)) {
+            return GameEnd.lost();
+        }
         return GameEnd.won();
     }
 }

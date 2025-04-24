@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionCollection implements QuestionService {
-    private List<Question> questions;
+    private final List<Question> questions;
 
     public QuestionCollection() {
         this.questions = new ArrayList<>();
@@ -20,8 +20,13 @@ public class QuestionCollection implements QuestionService {
     }
 
     @Override
-    public boolean verifyAnswer(String answer) {
-        throw new UnsupportedOperationException("Not implemented yet");
+    public boolean isAnswerCorrect(QuestionId questionId, String answer) {
+        Question question = questions.stream()
+                .filter(q -> q.id().equals(questionId))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Question not found for id: " + questionId));
+
+        return question.answer().equals(answer);
     }
 
     public void addAll(List<Question> questions) {

@@ -20,7 +20,7 @@ public class GiveAnswersTest {
     }
 
     @Test
-    void game_is_won_with_1_correct_answers_out_of_1() {
+    void game_is_won_with_1_correct_answer_out_of_1() {
         QuestionResult questionResult = context.questions()
                 .addQuestion("What's your name?", "John")
                 .get();
@@ -34,5 +34,22 @@ public class GiveAnswersTest {
                 .get();
 
         context.verifyThat(answersGivenResult).isGameWon();
+    }
+
+    @Test
+    void game_is_lost_with_1_wrong_answer_out_of_1() {
+        QuestionResult questionResult = context.questions()
+                .addQuestion("What's your name?", "John")
+                .get();
+
+        StartedGameResult gameResult = context.startedGame().fromQuestions(questionResult).get();
+
+        List<Question> questions = gameResult.questions();
+
+        AnswerResult answersGivenResult = context.answers()
+                .addAnswer(questions.get(0).id(), "Mary")
+                .get();
+
+        context.verifyThat(answersGivenResult).isGameLost();
     }
 }
