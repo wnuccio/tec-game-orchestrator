@@ -10,4 +10,8 @@ public class QuestionResult {
     public QuestionResult(List<Question> questions) {
         this.questions = questions;
     }
+
+    public Question get(int i) {
+        return questions.get(i);
+    }
 }

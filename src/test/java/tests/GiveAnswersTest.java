@@ -1,14 +1,11 @@
 package tests;
 
 import collections.TestContext;
-import domain.game.Question;
 import entities.endedgame.GameEndResult;
 import entities.question.QuestionResult;
 import entities.startedgame.StartedGameResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 public class GiveAnswersTest {
 
@@ -21,15 +18,15 @@ public class GiveAnswersTest {
 
     @Test
     void game_is_won_with_1_correct_answer_out_of_1() {
-        QuestionResult questionResult = context.questions()
+        QuestionResult questions = context.questions()
                 .addQuestion("What's your name?", "John")
                 .get();
 
-        StartedGameResult startedGame = context.startedGame().fromQuestions(questionResult).get();
+        StartedGameResult startedGame = context.startedGame().fromQuestions(questions).get();
 
         GameEndResult gameEnd = context.endedGame()
                 .fromStartedGame(startedGame)
-                .addAnswer(startedGame.questions().get(0).id(), "John")
+                .addAnswer(questions.get(0).id(), "John")
                 .get();
 
         context.verifyThat(gameEnd).isGameWon();
@@ -37,13 +34,11 @@ public class GiveAnswersTest {
 
     @Test
     void game_is_lost_with_1_wrong_answer_out_of_1() {
-        QuestionResult questionResult = context.questions()
+        QuestionResult questions = context.questions()
                 .addQuestion("What's your name?", "John")
                 .get();
 
-        StartedGameResult startedGame = context.startedGame().fromQuestions(questionResult).get();
-
-        List<Question> questions = startedGame.questions();
+        StartedGameResult startedGame = context.startedGame().fromQuestions(questions).get();
 
         GameEndResult gameEnd = context.endedGame()
                 .fromStartedGame(startedGame)
