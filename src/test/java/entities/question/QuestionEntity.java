@@ -9,7 +9,7 @@ import java.util.List;
 
 public class QuestionEntity {
     private final TestContext context;
-    private List<Question> questions;
+    private final List<Question> questions;
 
     public QuestionEntity(TestContext context) {
         this.context = context;
@@ -23,6 +23,9 @@ public class QuestionEntity {
     }
 
     public QuestionResult get() {
+        if (questions.isEmpty()) {
+            this.addQuestion("What's your name?", "John");
+        }
         context.questionCollection().addAll(questions);
         return new QuestionResult(questions);
     }

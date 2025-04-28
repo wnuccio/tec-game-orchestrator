@@ -34,11 +34,8 @@ public class StartedGameEntity {
 
     public StartedGameResult get() {
         subscription = subscription != null ? subscription : context.subscription().get();
-        questions = questions != null ? questions : context.questions()
-                .addQuestion("What's your name?", "John").get();
-
+        questions = questions != null ? questions : context.questions().get();
         List<Question> questions = context.startGameUseCase().startGame(subscription.userId());
-
         return new StartedGameResult(questions);
     }
 }
