@@ -33,16 +33,6 @@ public class StartGameTest {
         context.verifyThat(game).hasQuestions("Question 1?", "Question 2?", "Question 3?");
     }
 
-
-    @Test
-    void start_game_sends_a_welcome_email() {
-        UserResult user = context.user().withEmail("gamer@email.com").get();
-
-        StartedGameResult game = context.startedGame().fromUser(user).get();
-
-        context.verifyThat(game).isEmailSent("gamer@email.com");
-    }
-
     @Test
     void start_game_sends_a_welcome_email_based_on_subscribtion_website() {
         UserResult user = context.user().withEmail("user.from.france@email.com").get();
@@ -53,6 +43,6 @@ public class StartGameTest {
                 .fromSubscription(subscription)
                 .get();
 
-//        context.verifyThat(game).isEmailSent("user.from.france@email.com", Website.FRANCE);
+        context.verifyThat(game).isEmailSent("user.from.france@email.com", Website.FRANCE);
     }
 }

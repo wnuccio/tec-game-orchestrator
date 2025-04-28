@@ -1,7 +1,7 @@
 package collections;
 
-import domain.user.UserId;
 import domain.user.User;
+import domain.user.UserId;
 import domain.user.UserService;
 
 import java.util.HashMap;
@@ -22,5 +22,15 @@ public class UserCollection implements UserService {
     @Override
     public String findUserEmail(UserId userId) {
         return users.get(userId).emailAddress();
+    }
+
+    public UserId nextId() {
+        return users.values()
+                .stream()
+                .map(User::id)
+                .map(UserId::id)
+                .max(Integer::compareTo)
+                .map(id -> new UserId(id + 1))
+                .orElse(new UserId(1));
     }
 }

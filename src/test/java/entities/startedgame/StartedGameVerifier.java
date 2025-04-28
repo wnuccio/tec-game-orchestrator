@@ -10,7 +10,6 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 public class StartedGameVerifier {
     private final TestContext context;
@@ -21,12 +20,9 @@ public class StartedGameVerifier {
         this.startedGame = startedGame;
     }
 
-    public void isEmailSent(String email) {
-        assertEquals(context.mailCollection().lastEmailSent().emailAddress(), email);
-    }
-
-    public void isEmailSent(String email, Website website) {
-        fail();
+    public void isEmailSent(String emailAddress, Website website) {
+        assertEquals(context.mailCollection().lastEmailSent().emailAddress(), emailAddress);
+        assertEquals(context.mailCollection().lastEmailSent().website(), website);
     }
 
     public void hasQuestions(String... questions) {

@@ -1,8 +1,8 @@
 package entities.user;
 
 import collections.TestContext;
-import domain.user.UserId;
 import domain.user.User;
+import domain.user.UserId;
 
 public class UserEntity {
     private final TestContext context;
@@ -21,6 +21,7 @@ public class UserEntity {
 
     public UserResult get() {
         email = email != null ? email : "andrea.delfi@email.com";
+        id = id != null ? id : context.userCollection().nextId();
         User user = new User(id, "Andrea", "Delfi", email);
         context.userCollection().addUser(user);
         return new UserResult(user);
