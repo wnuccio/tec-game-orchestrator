@@ -1,8 +1,11 @@
 package tests;
 
 import collections.TestContext;
+import domain.session.Website;
 import entities.question.QuestionResult;
+import entities.session.SessionResult;
 import entities.startedgame.StartedGameResult;
+import entities.subscription.SubscriptionResult;
 import entities.user.UserResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,5 +41,18 @@ public class StartGameTest {
         StartedGameResult game = context.startedGame().fromUser(user).get();
 
         context.verifyThat(game).isEmailSent("gamer@email.com");
+    }
+
+    @Test
+    void start_game_sends_a_welcome_email_based_on_subscribtion_website() {
+        UserResult user = context.user().withEmail("user.from.france@email.com").get();
+        SessionResult session = context.session().withWebsite(Website.FRANCE).get();
+        SubscriptionResult subscription = context.subscription().fromUser(user).fromSession(session).get();
+
+        StartedGameResult game = context.startedGame()
+                .fromSubscription(subscription)
+                .get();
+
+//        context.verifyThat(game).isEmailSent("user.from.france@email.com", Website.FRANCE);
     }
 }

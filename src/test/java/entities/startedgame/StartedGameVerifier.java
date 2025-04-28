@@ -2,6 +2,7 @@ package entities.startedgame;
 
 import collections.TestContext;
 import domain.game.Question;
+import domain.session.Website;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,6 +23,10 @@ public class StartedGameVerifier {
 
     public void isEmailSent(String email) {
         assertEquals(context.mailCollection().lastEmailSent().emailAddress(), email);
+    }
+
+    public void isEmailSent(String email, Website website) {
+        fail();
     }
 
     public void hasQuestions(String... questions) {

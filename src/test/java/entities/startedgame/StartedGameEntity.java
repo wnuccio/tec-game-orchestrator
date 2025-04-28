@@ -3,13 +3,14 @@ package entities.startedgame;
 import collections.TestContext;
 import domain.game.Question;
 import entities.question.QuestionResult;
+import entities.subscription.SubscriptionResult;
 import entities.user.UserResult;
 
 import java.util.List;
 
 public class StartedGameEntity {
     private final TestContext context;
-    private UserResult user;
+    private SubscriptionResult subscription;
     private QuestionResult questions;
 
     public StartedGameEntity(TestContext context) {
@@ -17,7 +18,12 @@ public class StartedGameEntity {
     }
 
     public StartedGameEntity fromUser(UserResult user) {
-        this.user = user;
+        this.subscription = context.subscription().fromUser(user).get();
+        return this;
+    }
+
+    public StartedGameEntity fromSubscription(SubscriptionResult subscription) {
+        this.subscription = subscription;
         return this;
     }
 
@@ -27,11 +33,12 @@ public class StartedGameEntity {
     }
 
     public StartedGameResult get() {
-        user = user != null ? user : context.user().get();
+        subscription = subscription != null ? subscription : context.subscription().get();
         questions = questions != null ? questions : context.questions()
                 .addQuestion("What's your name?", "John").get();
 
-        List<Question> questions = context.startGameUseCase().startGame(user.userId());
+        List<Question> questions = context.startGameUseCase().startGame(subscription.userId());
+
         return new StartedGameResult(questions);
     }
 }
