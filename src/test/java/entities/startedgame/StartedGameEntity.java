@@ -36,6 +36,6 @@ public class StartedGameEntity {
         subscription = subscription != null ? subscription : context.subscription().get();
         questions = questions != null ? questions : context.questions().get();
         List<Question> questions = context.startGameUseCase().startGame(subscription.userId());
-        return new StartedGameResult(questions);
+        return new StartedGameResult(subscription, questions);
     }
 }

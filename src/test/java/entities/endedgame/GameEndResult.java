@@ -3,6 +3,7 @@ package entities.endedgame;
 import collections.TestContext;
 import domain.game.GameEnd;
 import domain.purchase.Voucher;
+import domain.user.UserId;
 
 import java.util.Optional;
 
@@ -21,5 +22,9 @@ public class GameEndResult {
 
     public Optional<Voucher> voucher() {
         return gameEnd.voucher();
+    }
+
+    public UserId userId() {
+        return gameEnd.userId();
     }
 }

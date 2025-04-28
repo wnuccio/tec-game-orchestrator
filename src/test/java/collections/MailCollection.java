@@ -4,10 +4,9 @@ import domain.mail.Email;
 import domain.mail.MailService;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MailCollection implements MailService {
-    private final List<Email> emails;
+    private final ArrayList<Email> emails;
 
     public MailCollection() {
         emails = new ArrayList<>();
@@ -19,6 +18,6 @@ public class MailCollection implements MailService {
     }
 
     public Email lastEmailSent() {
-        return emails.stream().findFirst().orElseThrow();
+        return emails.get(emails.size()-1);
     }
 }

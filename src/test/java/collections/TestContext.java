@@ -11,7 +11,9 @@ import entities.startedgame.StartedGameResult;
 import entities.startedgame.StartedGameVerifier;
 import entities.subscription.SubscriptionEntity;
 import entities.user.UserEntity;
+import entities.voucherspent.VoucherSpentEntity;
 import usecases.GiveAnswerUseCase;
+import usecases.SpendVoucherUseCase;
 import usecases.StartGameUseCase;
 import usecases.SubscribeUserUseCase;
 
@@ -52,6 +54,7 @@ public class TestContext {
         }
         return questionCollection;
     }
+
     public SubscribeUserUseCase subscribeUserUseCase() {
         return new SubscribeUserUseCase(userCollection(), sessionCollection(), subscriptionCollection());
     }
@@ -67,12 +70,15 @@ public class TestContext {
     public GiveAnswerUseCase giveAnswerUseCase() {
         return new GiveAnswerUseCase(questionCollection, gameCollection());
     }
+    public SpendVoucherUseCase spendVoucherUseCase() {
+        return new SpendVoucherUseCase(userCollection(), subscriptionCollection(), gameCollection(), mailCollection());
+    }
 
     // Repositories
-
     private GameRepository gameCollection() {
         return new GameCollection();
     }
+
     // Entities
     public UserEntity user() {
         return new UserEntity(this);
@@ -92,12 +98,14 @@ public class TestContext {
     public EndedGameEntity endedGame() {
         return new EndedGameEntity(this);
     }
+    public VoucherSpentEntity voucherSpent() {
+        return new VoucherSpentEntity(this);
+    }
 
     // Verifiers
     public StartedGameVerifier verifyThat(StartedGameResult startedGameResult) {
         return new StartedGameVerifier(this, startedGameResult);
     }
-
     public GameEndVerifier verifyThat(GameEndResult gameEndResult) {
         return new GameEndVerifier(this, gameEndResult);
     }
