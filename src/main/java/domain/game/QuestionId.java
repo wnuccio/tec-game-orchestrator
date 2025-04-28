@@ -6,4 +6,11 @@ public class QuestionId {
     public QuestionId(int id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "QuestionId{" +
+                "id=" + id +
+                '}';
+    }
 }

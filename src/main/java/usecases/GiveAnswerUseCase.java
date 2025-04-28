@@ -4,6 +4,7 @@ import domain.game.GameEnd;
 import domain.game.GameRepository;
 import domain.game.QuestionId;
 import domain.game.QuestionService;
+import domain.purchase.Voucher;
 import domain.user.UserId;
 
 public class GiveAnswerUseCase {
@@ -19,6 +20,7 @@ public class GiveAnswerUseCase {
         if (!questionService.isAnswerCorrect(questionId, answer)) {
             return GameEnd.lost();
         }
-        return GameEnd.won();
+        Voucher voucher = new Voucher(userId, null, 1.00);
+        return GameEnd.won(voucher);
     }
 }

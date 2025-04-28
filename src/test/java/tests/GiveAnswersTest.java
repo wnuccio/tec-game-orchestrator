@@ -2,7 +2,7 @@ package tests;
 
 import collections.TestContext;
 import domain.game.Question;
-import entities.answer.GameEndResult;
+import entities.endedgame.GameEndResult;
 import entities.question.QuestionResult;
 import entities.startedgame.StartedGameResult;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,10 +27,9 @@ public class GiveAnswersTest {
 
         StartedGameResult startedGame = context.startedGame().fromQuestions(questionResult).get();
 
-        List<Question> questions = startedGame.questions();
-
-        GameEndResult gameEnd = context.answers()
-                .addAnswer(questions.get(0).id(), "John")
+        GameEndResult gameEnd = context.endedGame()
+                .fromStartedGame(startedGame)
+                .addAnswer(startedGame.questions().get(0).id(), "John")
                 .get();
 
         context.verifyThat(gameEnd).isGameWon();
@@ -46,7 +45,8 @@ public class GiveAnswersTest {
 
         List<Question> questions = startedGame.questions();
 
-        GameEndResult gameEnd = context.answers()
+        GameEndResult gameEnd = context.endedGame()
+                .fromStartedGame(startedGame)
                 .addAnswer(questions.get(0).id(), "Mary")
                 .get();
 
@@ -55,7 +55,7 @@ public class GiveAnswersTest {
 
     @Test
     void when_game_is_won_a_voucher_is_returned() {
-        GameEndResult gameEnd = context.answers().get();
+        GameEndResult gameEnd = context.endedGame().get();
 
         context.verifyThat(gameEnd).hasVoucher();
     }

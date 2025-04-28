@@ -6,17 +6,19 @@ import java.util.Optional;
 
 public class GameEnd {
     private final boolean isWon;
+    private final Voucher voucher;
 
-    public GameEnd(boolean isWon) {
+    public GameEnd(boolean isWon, Voucher voucher) {
         this.isWon = isWon;
+        this.voucher = voucher;
     }
 
-    public static GameEnd won() {
-        return new GameEnd(true);
+    public static GameEnd won(Voucher voucher) {
+        return new GameEnd(true, voucher);
     }
 
     public static GameEnd lost() {
-        return new GameEnd(false);
+        return new GameEnd(false, null);
     }
 
     public boolean isWon() {
@@ -24,6 +26,6 @@ public class GameEnd {
     }
 
     public Optional<Voucher> voucher() {
-        return Optional.empty();
+        return Optional.ofNullable(voucher);
     }
 }

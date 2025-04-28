@@ -1,4 +1,4 @@
-package entities.answer;
+package entities.endedgame;
 
 import collections.TestContext;
 

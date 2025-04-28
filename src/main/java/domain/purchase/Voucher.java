@@ -1,17 +1,19 @@
 package domain.purchase;
 
+import domain.user.UserId;
+
 public class Voucher {
-    private final String userId;
+    private final UserId userId;
     private final String website;
     private final double discount;
 
-    public Voucher(String userId, String website, double discount) {
+    public Voucher(UserId userId, String website, double discount) {
         this.userId = userId;
         this.website = website;
         this.discount = discount;
     }
 
-    public String getUserId() {
+    public UserId getUserId() {
         return userId;
     }
 
