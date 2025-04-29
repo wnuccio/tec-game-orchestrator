@@ -2,7 +2,7 @@ package entities.endedgame;
 
 import collections.TestContext;
 import domain.game.GameEnd;
-import domain.purchase.Voucher;
+import domain.game.Voucher;
 import domain.user.UserId;
 
 import java.util.Optional;

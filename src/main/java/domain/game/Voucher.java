@@ -1,4 +1,4 @@
-package domain.purchase;
+package domain.game;
 
 import domain.user.UserId;
 

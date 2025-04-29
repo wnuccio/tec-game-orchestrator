@@ -4,7 +4,7 @@ import domain.game.GameEnd;
 import domain.game.GameRepository;
 import domain.game.QuestionId;
 import domain.game.QuestionService;
-import domain.purchase.Voucher;
+import domain.game.Voucher;
 import domain.user.UserId;
 
 public class GiveAnswerUseCase {

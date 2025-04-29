@@ -1,6 +1,5 @@
 package domain.game;
 
-import domain.purchase.Voucher;
 import domain.user.UserId;
 
 import java.util.Objects;
