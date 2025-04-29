@@ -1,25 +1,17 @@
 package domain.game;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class GameReport {
-    private final List<Question> questions;
-
-    public GameReport(List<Question> questions) {
-        this.questions = questions;
+public interface GameReport {
+    static GameReport gameStarted(List<Question> questions) {
+        return new StartGameSuccess(questions);
     }
 
-    public static GameReport failed() {
-        return new GameReport(Collections.emptyList());
+    static GameReport startGameFailed() {
+        return new StartGameFailure();
     }
 
-    public List<Question> questions() {
-        return new ArrayList<>(questions);
-    }
+    List<Question> questions();
 
-    public boolean isStarted() {
-        return !questions.isEmpty();
-    }
+    boolean isStarted();
 }

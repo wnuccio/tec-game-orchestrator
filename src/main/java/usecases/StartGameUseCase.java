@@ -38,7 +38,7 @@ public class StartGameUseCase {
         Website website = subscriptionService.findSubscription(userId).website();
 
         if (!session.website().equals(website)) {
-            return GameReport.failed();
+            return GameReport.startGameFailed();
         }
 
         String emailAddress = userService.findUserEmail(userId);
@@ -50,6 +50,6 @@ public class StartGameUseCase {
                 "Welcome to the game!");
 
         mailService.sendEmail(email);
-        return new GameReport(questions);
+        return GameReport.gameStarted(questions);
     }
 }
