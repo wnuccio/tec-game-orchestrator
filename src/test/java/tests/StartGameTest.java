@@ -19,6 +19,21 @@ public class StartGameTest {
         context = new TestContext();
     }
 
+    @Test
+    void game_should_start_on_website_of_subscription() {
+
+        SessionResult subscriptionSession = context.session().withWebsite(Website.ITALY).get();
+        SubscriptionResult subscription = context.subscription().fromSession(subscriptionSession).get();
+        SessionResult gameSession = context.session().withWebsite(Website.GERMANY).get();
+
+        StartedGameResult startedGame = context.startedGame()
+                .fromSubscription(subscription)
+                .withGameSession(gameSession)
+                .get();
+
+        context.verifyThat(startedGame).isStartingFailed();
+    }
+
 
     @Test
     void start_game_replies_with_questions() {
